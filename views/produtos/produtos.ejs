@@ -11,15 +11,15 @@
     </thead>
     <tbody>
    
-   
+    <% for(d of data) { %>
         <tr>
         
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><a href="produtos_edit?id=" class="bnt"><img src="svg/editar.svg" style="width:1.3em;height:auto"> </a></td>
+        <td><%- d.produto %></td>
+        <td><%- d.m.marca %></td>
+        <td><%- d.preco %></td>
+        <td><a href="produtos_edit?id=<%- d.id %>" class="bnt"><img src="svg/editar.svg" style="width:1.3em;height:auto"> </a></td>
         </tr>
-    
+    <% } %>
     </tbody>
     </table>
     <div class="float-right"><a href="produtos_add"><img src="svg/adicionar.svg" style="width:4em;height:auto"> </a></div>

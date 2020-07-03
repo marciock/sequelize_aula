@@ -1,10 +1,6 @@
 const express=require('express');
 const router=express.Router();
-
-router.get('/',(req,res)=>{
-    res.render('produtos/produtos');
-});
-
-
+const produtos=require('../../controllers/produtos/view');
+router.get('/',produtos.show)
 
 module.exports=router;

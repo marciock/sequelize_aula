@@ -10,20 +10,24 @@ const indexRouter = require('./routes/index');
 const marcasRouter=require('./routes/marcas/index');
 const marcasAddRouter=require('./routes/marcas/add');
 const marcasEditRouter=require('./routes/marcas/edit');
-
+const marcasSaveRouter=require('./routes/marcas/save');
+const marcasUpRouter=require('./routes/marcas/up');
 
 //produtos
 const produtosRouter=require('./routes/produtos/index');
 const produtosAddRouter=require('./routes/produtos/add');
 const produtosEditRouter=require('./routes/produtos/edit');
+const produtosSaveRouter=require('./routes/produtos/save');
+const produtosUpRouter=require('./routes/produtos/up');
 
 
-
-
+const db=require('./models');
 const app = express();
 
 
-
+/*db.sequelize.sync().then(()=>{
+  console.log('Conectado');
+});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,15 +45,17 @@ app.use('/', indexRouter);
 app.use('/marcas',marcasRouter)
 app.use('/marcas_add',marcasAddRouter);
 app.use('/marcas_edit',marcasEditRouter);
-
-
+app.use('/marcas_save',marcasSaveRouter);
+app.use('/marcas_edit',marcasEditRouter);
+app.use('/marcas_up',marcasUpRouter);
 
 //produtos url
 app.use('/produtos',produtosRouter)
 app.use('/produtos_add',produtosAddRouter);
 app.use('/produtos_edit',produtosEditRouter);
-
-
+app.use('/produtos_save',produtosSaveRouter);
+app.use('/produtos_edit',produtosEditRouter);
+app.use('/produtos_up',produtosUpRouter);
 
 
 // catch 404 and forward to error handler
